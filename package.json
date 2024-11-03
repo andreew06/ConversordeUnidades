@@ -1,5 +1,5 @@
 {
-  "name": "conversormedidas",
+  "name": "ConversordeUnidades",
   "version": "1.0.0",
   "main": "expo/AppEntry.js",
   "scripts": {
@@ -16,7 +16,8 @@
     "react-native-picker-select": "^9.3.1",
     "react-native-web": "~0.19.10",
     "react-dom": "18.2.0",
-    "@expo/metro-runtime": "~3.2.3"
+    "@expo/metro-runtime": "~3.2.3",
+    "expo-screen-orientation": "~7.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

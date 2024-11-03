@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, SafeAreaView, Dimensions, PixelRatio } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
+import * as ScreenOrientation from 'expo-screen-orientation';
+
 
 const { width } = Dimensions.get('window');
 const fontSize = PixelRatio.get() < 2 ? 16 : 18;
@@ -11,6 +13,7 @@ export default function App() {
   const [outputUnit, setOutputUnit] = useState(null);
   const [convertedValue, setConvertedValue] = useState('');
   const [error, setError] = useState('');
+  const [orientation, setOrientation] = useState(null);
 
   const convertValue = () => {
     if (!inputValue || !inputUnit || !outputUnit) {
@@ -49,7 +52,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.container}>
-        <Text style={styles.header}>Conversor de Medidas</Text>
+        <Text style={styles.header}>Conversor de Unidades</Text>
 
         <TextInput
           style={styles.input}
