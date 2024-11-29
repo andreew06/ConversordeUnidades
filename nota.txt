@@ -1,0 +1,5 @@
+Este trabalho foi feito com React e Expo devido a limitações de hardware dos integrantes.
+
+Apesar de tudo, os requisitos do trabalho foram atendidos.
+
+A visualização do trabalho pode ser feita pelo navegador e pelo aplicativo Expo Go, gratuito na play store

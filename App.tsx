@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView, SafeAreaView, Dimensions, PixelRatio } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
-import * as ScreenOrientation from 'expo-screen-orientation';
 
 
 const { width } = Dimensions.get('window');
@@ -13,7 +12,7 @@ export default function App() {
   const [outputUnit, setOutputUnit] = useState(null);
   const [convertedValue, setConvertedValue] = useState('');
   const [error, setError] = useState('');
-  const [orientation, setOrientation] = useState(null);
+
 
   const convertValue = () => {
     if (!inputValue || !inputUnit || !outputUnit) {
@@ -27,7 +26,7 @@ export default function App() {
       return;
     }
 
-    setError(''); // Limpa o erro caso tudo esteja correto
+    setError(''); // limpa o erro se tudo estiver correto
     let result = 0;
 
     switch (inputUnit) {
@@ -46,7 +45,8 @@ export default function App() {
       default: break;
     }
 
-    setConvertedValue(`${result.toFixed(3)} ${outputUnit}`);
+    setConvertedValue(`${result.toLocaleString('pt-BR', { minimumFractionDigits: 3, maximumFractionDigits: 3 })} ${outputUnit}`);
+
   };
 
   return (
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
-    width: width * 0.8, // largura relativa
+    width: width * 0.8,
     padding: 8,
     marginBottom: 16,
   },
@@ -154,15 +154,15 @@ const styles = StyleSheet.create({
 const pickerSelectStyles = StyleSheet.create({
   inputIOS: {
     fontSize: fontSize,
-    paddingVertical: 12,
+    paddingVertical: 8,
     paddingHorizontal: 10,
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderColor: 'gray',
-    borderRadius: 4,
+    borderRadius: 8,
     color: 'black',
-    paddingRight: 30,
-    width: width * 0.8,
+    width: '80%',
     marginBottom: 20,
+    alignSelf: 'center',
   },
   inputAndroid: {
     fontSize: fontSize,
@@ -172,8 +172,8 @@ const pickerSelectStyles = StyleSheet.create({
     borderColor: 'gray',
     borderRadius: 8,
     color: 'black',
-    paddingRight: 30,
-    width: width * 0.8,
+    width: '80%',
     marginBottom: 20,
+    alignSelf: 'center',
   },
 });
